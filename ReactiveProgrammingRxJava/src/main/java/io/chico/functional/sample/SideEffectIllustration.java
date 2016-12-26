@@ -1,4 +1,4 @@
-package io.chico;
+package io.chico.functional.sample;
 
 /**
  * @author Francisco Almeida

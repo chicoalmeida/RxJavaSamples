@@ -1,4 +1,4 @@
-package io.chico;
+package io.chico.functional.sample;
 
 import java.util.function.Function;
 
