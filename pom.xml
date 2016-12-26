@@ -7,12 +7,25 @@
     <groupId>io.chico</groupId>
     <artifactId>ReactiveProgrammingRxJava</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <properties>
         <version.java>1.8</version.java>
         <version.rx-java>1.1.6</version.rx-java>
         <version.junit>4.11</version.junit>
         <version.lombok>1.16.12</version.lombok>
+        <version.twitter4j>4.0.5</version.twitter4j>
     </properties>
 
     <dependencies>
@@ -33,6 +46,12 @@
             <version>${version.lombok}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-core</artifactId>
+            <version>${version.twitter4j}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
