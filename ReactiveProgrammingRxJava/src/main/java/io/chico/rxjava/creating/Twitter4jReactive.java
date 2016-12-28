@@ -13,21 +13,22 @@ public class Twitter4jReactive {
 
     public static void main(String[] args) {
 
-        observe().subscribe(status -> System.out.println(status.getId()));
+        observe().subscribe(status -> System.out.println(status.getText()));
 
     }
 
     private static Observable<Status> observe() {
         return Observable.create(subscriber -> {
+
             TwitterStream twitterStream = createTwitterStream();
 
             twitterStream.addListener(new StatusListener() {
                 @Override
                 public void onStatus(final Status status) {
-                    /**
-                     * This will guarantee that when the subscriber unsubscribe we will clean-up the resources
-                     * to avoid resource leak
-                     * */
+                    /*
+                      This will guarantee that when the subscriber unsubscribe we will clean-up the resources
+                      to avoid resource leak
+                      */
                     if (subscriber.isUnsubscribed())
                         twitterStream.shutdown();
                     else

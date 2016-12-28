@@ -1,6 +1,8 @@
 package io.chico;
 
+import io.chico.rxjava.creating.Twitter4jSubject;
 import rx.Observable;
+import twitter4j.Status;
 
 /**
  * Hello world!
@@ -8,19 +10,11 @@ import rx.Observable;
 public class App {
 
     public static void main(String[] args) {
+        Twitter4jSubject twitter4jSubject = new Twitter4jSubject();
 
+        Observable<Status> observe = twitter4jSubject.observe();
 
-        Observable<Object> observable = Observable.create(subscriber -> {
-            subscriber.onNext(1);
-            subscriber.onNext(10);
-            subscriber.onNext(100);
-            subscriber.onError(new RuntimeException("ERROR"));
-            subscriber.onCompleted();
-        });
-
-        observable.subscribe(System.out::println, error-> System.out.println(error.getMessage()));
-
-
+        observe.subscribe(s -> System.out.println(s.getText()));
     }
 }
 
